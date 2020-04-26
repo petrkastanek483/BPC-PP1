@@ -1,16 +1,19 @@
-function lich=lichobeznik(fce,min,max,step)
+function [lich,lich1,lichx]=lichobeznik(fce,min,max,step)
 
         h=(max-min)/step;                 % šíøka intervalu
        
         fce1=inline(fce);                 % úprava funkce na tvar zpùsobilý pro poèítání
         
-        lich=fce1(min)/2+fce1(max)/2; 
+        lich1=fce1(min)/2+fce1(max)/2; 
 
-    for x=min+h:h:max-h     
+    for lichx=min+h:h:max-h     
         
-        lich=lich+fce1(x);
+        lich1=lich1+fce1(lichx);
 
     end
 
-    lich=lich*h;
+    lich=lich1*h;
+    lichx=min+h:h:max-h;
+    lich1=lich1+fce1(lichx);
+
 end

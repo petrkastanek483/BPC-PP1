@@ -90,9 +90,9 @@ set(handles.vysledek, 'Visible', 'on');
  n=str2double(get(handles.n, 'String'));
  fce=get(handles.fce, 'String');
 
-obd=obdelnik(fce,min,max,n);
-
-
+[obd,obd1,obdx]=obdelnik(fce,min,max,n);
+plot(obdx,obd1);
+grid on;
 
 set(handles.vysledek, 'String', obd);
 end
@@ -104,7 +104,9 @@ min=str2double(get(handles.a, 'String'));
 n=str2double(get(handles.n, 'String'));
 fce=get(handles.fce, 'String');
 
-lich=lichobeznik(fce,min,max,n);
+[lich,lich1,lichx]=lichobeznik(fce,min,max,n);
+plot(lichx,lich1);
+grid on;
 
 set(handles.vysledek, 'String', lich);
 end
@@ -116,7 +118,9 @@ min=str2num(get(handles.a, 'String'));
 n=str2num(get(handles.n, 'String'));
 fce=get(handles.fce, 'String');
 
-sim=simpson(fce,min,max,n);
+[sim,sim1,simx]=simpson(fce,min,max,n);
+plot(simx,sim1);
+grid on;
 
 set(handles.vysledek, 'String', sim);
 end
